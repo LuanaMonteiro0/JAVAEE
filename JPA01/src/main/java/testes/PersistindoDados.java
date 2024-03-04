@@ -20,7 +20,6 @@ public class PersistindoDados {
         p1.addAnimalEstimacao(gato1);
         p1.addAnimalEstimacao(gato2);
 
-        gato1.setDono(p1);
 
         EntityManager em = JPAutils.getEntityManager();
 
@@ -31,8 +30,6 @@ public class PersistindoDados {
 
         aDAO.cadastrarAnimal(gato1);
         aDAO.cadastrarAnimal(gato2);
-
-        gato2.setDono(p1);
 
         pDAO.cadastrarPessoa(p1);
 
