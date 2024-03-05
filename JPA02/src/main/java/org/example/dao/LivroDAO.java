@@ -15,4 +15,14 @@ public class LivroDAO {
         this.em.flush();
     }
 
+    public Livro encontrarLivroPeloId(int id){
+        return em.find(Livro.class, id);
+    }
+
+    public void apagarLivro(Livro l){
+        this.em.remove(l);
+        this.em.flush();
+    }
+
+
 }
