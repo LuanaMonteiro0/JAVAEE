@@ -2,5 +2,11 @@
 
 package com.example.apiMecanico.mecanico;
 
-public record MecanicoDTO(String nome, int anosExperiencia) {
+import jakarta.validation.constraints.NotBlank;
+
+
+public record MecanicoDTO(
+        @NotBlank
+        String nome,
+        int anosExperiencia) {
 }

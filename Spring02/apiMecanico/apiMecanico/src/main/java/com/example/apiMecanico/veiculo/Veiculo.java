@@ -14,11 +14,13 @@ import lombok.NoArgsConstructor;
 public class Veiculo {
     private String marca;
     private String modelo;
-    private int ano;
+    private String ano;
+    private String cor;
 
     public Veiculo(VeiculoDTO veDTO){
         this.marca = veDTO.marca();
         this.modelo = veDTO.modelo();
         this.ano = veDTO.ano();
+        this.cor = veDTO.cor();
     }
 }
