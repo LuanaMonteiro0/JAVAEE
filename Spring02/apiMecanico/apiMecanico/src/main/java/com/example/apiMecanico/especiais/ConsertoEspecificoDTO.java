@@ -6,6 +6,7 @@ import com.example.apiMecanico.veiculo.VeiculoDTO;
 
 
 public record ConsertoEspecificoDTO(
+        Long id,
         String dataEntradaOficina,
         String dataSaidaOficina,
         String nomeMecanicoResponsavel,
@@ -13,7 +14,7 @@ public record ConsertoEspecificoDTO(
         String veiculoMondelo) {
 
     public ConsertoEspecificoDTO(Conserto conserto){
-        this(conserto.getDataEntradaOficina(), conserto.getDataSaidaOficina(),
+        this(conserto.getId(), conserto.getDataEntradaOficina(), conserto.getDataSaidaOficina(),
                 conserto.getMecanicoResponsavel().getNome(), conserto.getVeiculo().getMarca(),
                 conserto.getVeiculo().getModelo());
     }

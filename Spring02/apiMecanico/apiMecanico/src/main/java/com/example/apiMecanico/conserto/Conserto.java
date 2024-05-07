@@ -2,6 +2,7 @@
 
 package com.example.apiMecanico.conserto;
 
+import com.example.apiMecanico.especiais.AtualizacaoConsertoDTO;
 import com.example.apiMecanico.mecanico.Mecanico;
 import com.example.apiMecanico.veiculo.Veiculo;
 
@@ -27,11 +28,27 @@ public class Conserto {
     private Mecanico mecanicoResponsavel;
     @Embedded
     private Veiculo veiculo;
+    private Boolean ativo;
 
     public Conserto(ConsertoDTO consDto){
+        this.ativo = true;
         this.dataEntradaOficina = consDto.dataEntradaOficina();
         this.dataSaidaOficina = consDto.dataSaidaOficina();
         this.mecanicoResponsavel = new Mecanico(consDto.mecanicoResponsavel());
         this.veiculo = new Veiculo(consDto.veiculo());
+    }
+
+
+    public void excluir(){
+        this.ativo = false;
+    }
+
+    public void atualizarInformacoes(AtualizacaoConsertoDTO dados) {
+        if(dados.dataSaida() != null){
+            this.dataSaidaOficina = dados.dataSaida();
+        }
+        if(dados.mecanico() != null){
+            this.mecanicoResponsavel.atualizarInformacoes(dados.mecanico());
+        }
     }
 }
